@@ -1,9 +1,10 @@
 import React from 'react';
 import { FaPizzaSlice } from 'react-icons/fa'; 
 export const Header = () =>{
+    const x = 1;
     
     
-    return <header className="header" data-testid = "header">
+    return ( <header className="header" data-testid = "header">
         <nav>
             <div className="logo">
                 <img src ="/images/logo.png" alt="Todoist" />
@@ -18,4 +19,5 @@ export const Header = () =>{
             </div>
         </nav>
     </header>
+    );
 };
