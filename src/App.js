@@ -8,10 +8,10 @@ export const App = () =>  (
     <SelectedProjectProvider>
       <ProjectsProvider>
     <div className="App">
-    <Header />
-    <Content/>
+          <Header />
+          <Content/>
     
-    </div>
-    </ProjectsProvider>
+        </div>
+      </ProjectsProvider>
     </SelectedProjectProvider>
     );

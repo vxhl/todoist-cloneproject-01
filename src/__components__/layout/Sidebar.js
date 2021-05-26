@@ -55,9 +55,10 @@ import { AddProject } from '../AddProject';
             >
             <span>
                 <FaRegCalendarAlt/>
+
             </span>
             <span>
-                Next 7 days
+                 Next 7 days
             </span>
         </li>
      </ul>

@@ -214,8 +214,8 @@ header {
     height: calc(100vh);
     padding-top: 74px;
     position: fixed;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overlay-x: hidden;
+    overlay-y: hidden;
     border-right: $generic-border;
     background-color: #fafafa;
     
@@ -241,6 +241,7 @@ header {
             color: #cacaca;
         }
       }
+    
       
         &.active, &:hover {
             font-weight: bold;
@@ -315,20 +316,10 @@ header {
             padding: 10px 0 10px 10px;
             list-style-type: none;
             color: #333;
-            display: -webkit-box;
-            display: -ms-flexbox;
             display : flex;
             cursor: pointer;
             line-height: 1.50;
             font-size: 15px;
-          
-
-            div:nth-child(1) {
-              display: -webkit-box;
-              display: -ms-flexbox;
-              display: flex;
-              padding: 10px 0 10px 10px;
-              width: 100%; 
 
             span:first-of-type{
                 margin-right: 10px;
@@ -345,7 +336,7 @@ header {
                 
             }
             } 
-          }
+          
           
 
             
@@ -364,7 +355,7 @@ header {
 
   &__inner {
     @include box-overlay();
-    z-index:99;
+    z-index: 99px;
     width: 200px;
     padding:10px;
     top: 10px;
