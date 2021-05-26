@@ -2,11 +2,9 @@
 
 // General Settings
 html {
-  -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 *, *:before, *:after {
-  -webkit-box-sizing: inherit;
           box-sizing: inherit;
 }
 
@@ -35,8 +33,8 @@ $generic-bg: #db4c3f;
 /* Mixins
   ============================================ */
 @mixin box-overlay() {
-  -webkit-box-shadow: $generic-box-shadow;
-          box-shadow: $generic-box-shadow;
+  
+  box-shadow: $generic-box-shadow;
   position: absolute;
   width: 100%;
   z-index: 1;
@@ -45,27 +43,20 @@ $generic-bg: #db4c3f;
 }
 
 @mixin va($va-align: center) {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 
   @if $va-align != center {
-    -webkit-box-pack: left;
-        -ms-flex-pack: left;
-            justify-content: left;
+      justify-content: left;
   } @else {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+     justify-content: center;
   }
 }
 
 @mixin no-select {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
+  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
@@ -145,10 +136,7 @@ $generic-bg: #db4c3f;
 header {
   border-bottom: solid 1px #ca2100;
   background-color: $generic-bg;
-  -webkit-transition: height 200ms ease-in;
   transition: height 200ms ease-in;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   height: 44px;
   z-index: 400;
   position: fixed;
@@ -160,9 +148,7 @@ header {
   }
   nav {
     display: grid;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
@@ -190,7 +176,8 @@ header {
 
         ul {
           float: right;
-        li {
+        
+         li {
             @include va;
             list-style-type: none;
             cursor: pointer;
@@ -399,3 +386,85 @@ header {
     }
    }
   }
+
+/* Main Content */
+.content {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: 1fr auto;
+  max-width: 922px;
+  margin: auto;
+}
+
+/* Tasks
+  ============================================ */
+.tasks {
+  width: 656px;
+  background-color: white;
+  margin-left: 266px;
+  border-right: $generic-border;
+  min-height: calc(100vh);
+  vertical-align: top;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 80px;
+  padding-bottom: 84px;
+
+  @include mq('900px') {
+    margin-left: 0;
+    width: auto;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0 30px 20px 0;
+  }
+
+  .add-task {
+    margin-top: 20px;
+  }
+
+  &__list li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    line-height: 18px;
+    color: #333;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    list-style-type: none;
+    border-bottom: 1px solid #f0f0f0;
+
+    .checkbox-holder {
+      margin-right: 20px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      line-height: 16px;
+
+      .checkbox {
+        cursor: pointer;
+        border-color: gray;
+        color: #343434;
+        height: 16px;
+        width: 16px;
+        display: block;
+        border: 1px solid gray;
+        border-radius: 16px;
+
+  }
+}
+
+}
+
+}
