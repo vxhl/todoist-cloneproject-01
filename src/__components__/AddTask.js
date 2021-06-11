@@ -4,6 +4,7 @@ import moment from 'moment';
 import { firebase } from '../firebase';
 import { useSelectedProjectValue } from '../context';
 import { Projectoverlay } from './ProjectOverlay';
+import { TaskDate } from './TaskDate';
 
 export const AddTask = ({
   showAddTaskMain = true,
@@ -98,6 +99,11 @@ export const AddTask = ({
     showProjectOverlay = {showProjectOverlay}
     setShowProjectOverlay = {setShowProjectOverlay}
     />
+    <TaskDate 
+    setTaskDate={setTaskDate}
+    showTaskDate={showTaskDate} 
+    setShowTaskDate={setShowTaskDate}
+    />
     <input
             className="add-task__content"
             aria-label="Enter your task"
@@ -110,10 +116,8 @@ export const AddTask = ({
             type="button"
             className="add-task__submit"
             data-testid="add-task"
-            onClick={() =>
-              showQuickAddTask
-                ? addTask() && setShowQuickAddTask(false)
-                : addTask()
+            onClick={() =>showQuickAddTask 
+              ? addTask() && setShowQuickAddTask(false): addTask()
             }
           >
             Add Task

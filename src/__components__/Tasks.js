@@ -12,15 +12,18 @@ export const Tasks = () => {
     const { tasks } = useTasks(selectedProject);
     let projectName = '';
 
-    if (projects && selectedProject && !collatedTasksExist(selectedProject)){
+    if (collatedTasksExist(selectedProject) && selectedProject) {
+        projectName = getCollatedTitle(collatedTasks, selectedProject).name;
+      }
+    
+      if (
+        projects &&
+        projects.length > 0 &&
+        selectedProject &&
+        !collatedTasksExist(selectedProject)
+      ) {
         projectName = getTitle(projects, selectedProject).name;
-        // basically the custom projects that we make
-        console.log("projectName 1: ", projectName);
-    }
-    if ( collatedTasksExist(selectedProject) && selectedProject) {
-        projectName = getCollatedTitle(collatedTasks, selectedProject ).name;
-        // bascially we get one of INBOX< TODAY< NEXT7
-        console.log("projectName 2: ", projectName);
+      
 
     }
     useEffect(() => { 
